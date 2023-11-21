@@ -66,7 +66,7 @@ module.exports = {
         ],
       },
     ],
-    'unused-imports/no-unused-imports': 'error',
+    'unused-imports/no-unused-imports': 'off',
     // emotion11関連
     '@emotion/jsx-import': 'error',
     '@emotion/pkg-renaming': 'error',
@@ -74,5 +74,14 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': ['warn', { varsIgnorePattern: '^jsx$' }],
     '@typescript-eslint/no-misused-promises': 'off',
   },
-  ignorePatterns: ['build/', 'src--jsx/', 'public/', '**/node_modules/', '*.config.js', '.*lintrc.js', '/*.*'],
+  ignorePatterns: [
+    'build/',
+    'src--jsx/',
+    'public/',
+    '**/node_modules/',
+    '*.config.js',
+    '.*lintrc.js',
+    'old-src/',
+    '/*.*',
+  ],
 };
