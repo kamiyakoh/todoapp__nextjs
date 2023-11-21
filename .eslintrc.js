@@ -7,6 +7,7 @@ module.exports = {
     'next/core-web-vitals',
     'standard-with-typescript',
     'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'prettier',
   ],

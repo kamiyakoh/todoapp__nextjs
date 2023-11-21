@@ -1,10 +1,15 @@
 import { AppProps } from 'next/app';
+import AppProviders from './AppProviders';
 
 import '@/styles/globals.css';
 import type { FC } from 'react';
 
-const MyApp: FC<AppProps> = ({ Component, pageProps }) => {
-  return <Component {...pageProps} />;
+const App: FC<AppProps> = ({ Component, pageProps }) => {
+  return (
+    <AppProviders>
+      <Component {...pageProps} />
+    </AppProviders>
+  );
 };
 
-export default MyApp;
+export default App;
