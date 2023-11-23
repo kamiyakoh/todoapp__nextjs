@@ -1,22 +1,18 @@
 /** @jsxImportSource @emotion/react */
 /** @jsxRuntime classic */
 /** @jsx jsx */
+import { css, jsx } from '@emotion/react';
+import { NextPage } from 'next';
+import dynamic from 'next/dynamic';
 import Head from 'next/head';
+import { Toaster } from 'react-hot-toast';
 
 import Layout from '@/components/projects/Layout';
-
-import { css, jsx } from '@emotion/react';
-import Link from 'next/link';
-import { FC } from 'react';
-import { Toaster } from 'react-hot-toast';
 import Board from '@/components/uiParts/Board';
 import Button from '@/components/uiParts/Button';
 import Container from '@/components/uiParts/Container';
-import { useActive } from '@/hooks/useActive';
-import { useComp } from '@/hooks/useComp';
 import { useCustomForm } from '@/hooks/useCustomForm';
 import {
-  mq,
   pink,
   blue,
   yellow,
@@ -30,11 +26,12 @@ import {
   singleBoard,
   form,
 } from '@/styles/const';
-import { NextPage } from 'next';
+
+const NaviBoard = dynamic(async () => await import('@/components/projects/NaviBoard'), {
+  ssr: false,
+});
 
 const Home: NextPage = () => {
-  const { active } = useActive();
-  const { comp } = useComp();
   const {
     register,
     handleSubmit,
@@ -61,18 +58,7 @@ const Home: NextPage = () => {
           <Container isSingle>
             <h2 css={fs3}>作成</h2>
             <p>することを1つ以上は必ず入力してください</p>
-            <Board cssName={[singleBoard, yellow, counter]}>
-              <Link href="./active">
-                <Button isSubmit={false} cssName={[yellow, sizeResp]}>
-                  進行中 {active.length}
-                </Button>
-              </Link>
-              <Link href="./comp">
-                <Button isSubmit={false} cssName={[pink, sizeResp]}>
-                  完了済 {comp.length}
-                </Button>
-              </Link>
-            </Board>
+            <NaviBoard onPage="home" />
             <Board cssName={singleBoard}>
               <form css={form} onSubmit={handleSubmit(onSubmit)}>
                 <div>
@@ -151,20 +137,3 @@ const Home: NextPage = () => {
   );
 };
 export default Home;
-
-const counter = css`
-  display: flex;
-  justify-content: space-around;
-  ${mq('tab')} {
-    justify-content: space-evenly;
-  }
-`;
-const sizeResp = css`
-  --size: 1.5;
-  ${mq('tab')} {
-    --size: 2;
-  }
-  ${mq('pc')} {
-    --size: 3;
-  }
-`;

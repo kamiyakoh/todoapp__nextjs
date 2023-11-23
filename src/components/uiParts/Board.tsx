@@ -1,6 +1,5 @@
 /** @jsxImportSource @emotion/react */
-/** @jsxRuntime classic */
-/** @jsx jsx */
+
 import { css, jsx } from '@emotion/react';
 
 import { mq } from '../../styles/const';
@@ -8,6 +7,8 @@ import { mq } from '../../styles/const';
 import type { SerializedStyles } from '@emotion/react';
 import type { ReactNode, FC } from 'react';
 
+/** @jsxRuntime classic */
+/** @jsx jsx */
 interface Props {
   cssName?: SerializedStyles | SerializedStyles[];
   children: ReactNode;

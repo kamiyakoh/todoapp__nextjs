@@ -1,7 +1,9 @@
 import { atom } from 'recoil';
-import type { TodoData } from '../types';
-import { recoilKey } from './recoilKey';
 import { recoilPersist } from 'recoil-persist';
+
+import { recoilKey } from './recoilKey';
+
+import type { TodoData } from '../types';
 
 const { persistAtom } = recoilPersist();
 

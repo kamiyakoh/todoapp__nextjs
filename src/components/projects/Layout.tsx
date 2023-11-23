@@ -2,8 +2,8 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react';
-import { FC, ReactNode } from 'react';
 import Head from 'next/head';
+import { FC, ReactNode } from 'react';
 
 import Header from './Header';
 
