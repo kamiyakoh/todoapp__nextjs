@@ -1,6 +1,5 @@
 /** @jsxImportSource @emotion/react */
-/** @jsxRuntime classic */
-/** @jsx jsx */
+
 import { css, jsx } from '@emotion/react';
 import { NextPage } from 'next';
 import dynamic from 'next/dynamic';
@@ -26,6 +25,9 @@ import {
   singleBoard,
   form,
 } from '@/styles/const';
+
+/** @jsxRuntime classic */
+/** @jsx jsx */
 
 const NaviBoard = dynamic(async () => await import('@/components/projects/NaviBoard'), {
   ssr: false,
