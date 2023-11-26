@@ -3,7 +3,13 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react';
 import Head from 'next/head';
-import { FC, ReactNode } from 'react';
+import { FC, ReactNode, useEffect } from 'react';
+import { useRecoilState } from 'recoil';
+
+import { useActive } from '@/hooks/useActive';
+import { useComp } from '@/hooks/useComp';
+import { useDemoData } from '@/hooks/useDemoData';
+import { isComfirmState } from '@/states/isCofirmState';
 
 import Header from './Header';
 
@@ -12,6 +18,16 @@ interface Props {
 }
 
 const Layout: FC<Props> = ({ children }) => {
+  const [isComfirm, setIsComfirm] = useRecoilState<boolean>(isComfirmState);
+  const { active } = useActive();
+  const { comp } = useComp();
+  const { fetch } = useDemoData();
+
+  useEffect(() => {
+    if (isComfirm || active.length > 0 || comp.length > 0) return;
+    if (window.confirm('初期データとして、インターネットからデモデータを挿入しますか？')) fetch();
+    setIsComfirm(true);
+  }, [active, comp, isComfirm, fetch, setIsComfirm]);
   return (
     <div>
       <Head>

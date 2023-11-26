@@ -5,10 +5,7 @@ import { recoilKey } from './recoilKey';
 
 import type { TodoData } from '../types';
 
-const { persistAtom } = recoilPersist({
-  key: 'recoil-persist',
-  storage: typeof window === 'undefined' ? undefined : localStorage,
-});
+const { persistAtom } = recoilPersist();
 
 export const activeState = atom<TodoData[]>({
   key: recoilKey.activeState,
