@@ -22,7 +22,7 @@
 - react-hook-form 7.48.2
 - react-hot-toast 2.4.1
 - emotion/react 11.11.1
-- axios 1.4.0
+- axios 1.6.2
 - recoil 0.7.7
 - recoil-persist 5.1.0
 
