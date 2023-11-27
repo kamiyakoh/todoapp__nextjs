@@ -50,11 +50,11 @@ const EditActive: NextPage = () => {
 
   useEffect(() => {
     if (board.id === -1) {
-      void router.push('/404notfound');
+      void router.push('/404');
     }
   }, [board, router]);
 
-  if (board.id === -1) return <div />;
+  if (board.id === -1) return null;
   return (
     <Layout>
       <div css={[sec, bgLightYellow]}>
