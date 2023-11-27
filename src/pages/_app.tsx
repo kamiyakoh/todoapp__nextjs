@@ -1,6 +1,6 @@
 import { AppProps } from 'next/app';
 
-import AppProviders from './_appProviders';
+import AppProviders from '../components/provider/AppProviders';
 
 import '@/styles/globals.css';
 import type { FC } from 'react';
