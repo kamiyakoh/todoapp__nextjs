@@ -5,6 +5,7 @@ import { jsx } from '@emotion/react';
 import { NextPage } from 'next';
 import dynamic from 'next/dynamic';
 
+// // dynamic importしないとサーバーサイドで読み込まれてエラーとなってしまうため
 import Layout from '@/components/projects/Layout';
 
 const CompInner = dynamic(async () => await import('@/components/pageInner/CompInner'), {
